@@ -16,7 +16,7 @@ entity Travel : managed {
   EndDate        : Date @mandatory;
   BookingFee     : Decimal(16,3) default 0;
   TotalPrice     : Decimal(16,3) @readonly;
-  CurrencyCode   : Currency default 'EUR';
+  CurrencyCode   : Currency default '';
   Description    : String(1024);
   TravelStatus   : Association to TravelStatus default 'O' @readonly;
   to_Agency      : Association to TravelAgency @mandatory;
