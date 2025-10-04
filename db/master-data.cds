@@ -1,7 +1,6 @@
 using { Currency, Country, custom.managed, sap } from './common';
 namespace sap.fe.cap.travel;
 
-// ensure all masterdata entities are available to clients
 @cds.autoexpose @readonly
 aspect MasterData {}
 
@@ -31,10 +30,6 @@ entity Supplement : managed, MasterData {
 };
 
 entity Flight : MasterData {
-  // TODO:
-  // when cuid is added, the to_Airline & to_Connection can be made managed association,
-  // furthermore the AirlineID and ConnectionID can be removed,
-  // they will be replaced by the generate FKs for to_Airline & to_Connection
   key AirlineID    : String(3);
   key FlightDate   : Date;
   key ConnectionID : String(4);
@@ -51,10 +46,6 @@ entity Flight : MasterData {
 };
 
 entity FlightConnection : MasterData {
-  // TODO:
-  // once the TODO in Flight is done, similar change can be applied here
-  // to_Airline can be managed association and AirlineID can be removed
-  // and will be replaced with the generated FK
   key ConnectionID   : String(4);
   key AirlineID      : String(3);
   DepartureAirport   : Association to Airport;
@@ -68,8 +59,6 @@ entity FlightConnection : MasterData {
                          on to_Airline.AirlineID = AirlineID;
 };
 
-// showcasing unique constrains ??
-// @assert.unique.email: [EMailAddress]
 entity Passenger : managed, MasterData {
   key CustomerID : String(6);
   FirstName      : String(40);
@@ -94,11 +83,6 @@ entity TravelAgency : MasterData {
   EMailAddress : String(256);
   WebAddress   : String(256);
 };
-
-
-//
-// Code Lists
-//
 
 entity SupplementType : sap.common.CodeList {
   key code : String(2) enum {
