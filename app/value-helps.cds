@@ -1,9 +1,5 @@
 using { sap.fe.cap.travel as schema } from '../db/schema';
 
-//
-// annotations for value helps
-//
-
 annotate schema.Travel {
 
   TravelStatus @Common.ValueListWithFixedValues;
