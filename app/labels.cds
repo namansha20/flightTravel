@@ -1,8 +1,5 @@
 using { sap.fe.cap.travel as schema } from '../db/schema';
 
-//
-// annotations that control rendering of fields and labels
-//
 
 annotate schema.Travel with @title: '{i18n>Travel}' {
   TravelUUID   @UI.Hidden;
