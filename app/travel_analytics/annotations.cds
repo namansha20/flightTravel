@@ -67,14 +67,6 @@ annotate service.Bookings with @(
     AggregatableProperty : FlightPrice,
     @Common.Label        : '{i18n>AvgPrice}'
   },
-  // measure "sum of prices" is available by default (but name/label doesn't indicate summing -> ?)
-  // Analytics.AggregatedProperty #sumPrice :
-  //  {
-  //   Name                 : 'sumPrice',
-  //   AggregationMethod    : 'sum',
-  //   AggregatableProperty : FlightPrice,
-  //   @Common.Label        : '{i18n>TotalPrice}'
-  // }
 );
 
 
